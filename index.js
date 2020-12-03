@@ -142,23 +142,14 @@ const sharedResources = [
     files: ['images']
   },
   {
-    source: resolver.resolveModulePath('codemirror/lib', __dirname),
-    target: 'vendor/tui-editor',
-    css: ['codemirror.css']
-  },
-  {
-    source: resolver.resolveModulePath('tui-editor/dist', __dirname),
-    target: 'vendor/tui-editor',
-    css: ['tui-editor.min.css']
+    source: resolver.resolveModulePath('@toast-ui/editor/dist', __dirname),
+    target: 'vendor/toastui',
+    css: ['toastui-editor.css'],
+    scripts: ['toastui-editor.js']
   },
   {
     source: resolver.resolveModulePath('markdown-it/dist', __dirname),
     scripts: ['markdown-it.min.js']
-  },
-  {
-    source: 'vendor/os-minified/',
-    target: 'vendor/os-minified/',
-    files: ['os-tui-editor.min.js']
   },
   {
     source: resolver.resolveModulePath('crossfilter2', __dirname),
