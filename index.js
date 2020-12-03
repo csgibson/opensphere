@@ -144,8 +144,17 @@ const sharedResources = [
   {
     source: resolver.resolveModulePath('@toast-ui/editor/dist', __dirname),
     target: 'vendor/toastui',
-    css: ['toastui-editor.css'],
-    scripts: ['toastui-editor.js']
+    css: ['toastui-editor.css']
+  },
+  {
+    source: resolver.resolveModulePath('codemirror/lib', __dirname),
+    target: 'vendor/toastui',
+    css: ['codemirror.css']
+  },
+  {
+    source: 'vendor/os-minified/',
+    target: 'vendor/os-minified/',
+    scripts: ['os-toastui-editor.min.js']
   },
   {
     source: resolver.resolveModulePath('markdown-it/dist', __dirname),

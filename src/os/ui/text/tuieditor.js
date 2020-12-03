@@ -30,7 +30,7 @@ os.ui.text.TuiEditor.READY = 'tui.editor.ready';
  * @type {string}
  * @const
  */
-os.ui.text.TuiEditor.SCRIPT_URL = os.APP_ROOT + 'vendor/os-minified/os-tui-editor.min.js';
+os.ui.text.TuiEditor.SCRIPT_URL = os.APP_ROOT + 'vendor/os-minified/os-toastui-editor.min.js';
 
 
 /**
@@ -297,10 +297,10 @@ os.ui.text.TuiEditorCtrl.prototype.init = function() {
   }
 
   if (this.scope['edit']) {
-    if (tui.Editor) {
+    if (toastui.Editor) {
       this['textAreaBackup'] = false;
       this['loading'] = false;
-      this['tuiEditor'] = new tui.Editor(this.getOptions());
+      this['tuiEditor'] = new toastui.Editor(this.getOptions());
       this.scope.$emit(os.ui.text.TuiEditor.READY);
 
       if (os.settings.get(os.ui.text.TuiEditor.MODE_KEY) == os.ui.text.TuiEditor.Mode.MARKDOWN) {

@@ -8,7 +8,7 @@ goog.provide('os.ui.text.TuiEditorLang');
  */
 os.ui.text.TuiEditorLang.setup = function(opt_supportHotkeys) {
   // This is the language block for tui editor so we can modify words in their UI
-  var options = tui.Editor.i18n._langs.get('en_US');
+  var options = toastui.Editor.i18n._langs.get('en_US');
 
   // Add hotkeys to tooltips
   if (opt_supportHotkeys) {
@@ -27,5 +27,5 @@ os.ui.text.TuiEditorLang.setup = function(opt_supportHotkeys) {
 
   options['Markdown'] = 'Text';
   options['WYSIWYG'] = 'Visual';
-  tui.Editor.i18n._langs.set('en_US', options);
+  toastui.Editor.i18n._langs.set('en_US', options);
 };
