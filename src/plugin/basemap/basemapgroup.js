@@ -1,19 +1,25 @@
-goog.provide('plugin.basemap.Group');
+goog.module('plugin.basemap.Group');
+goog.module.declareLegacyNamespace();
+
+const osLayerGroup = goog.require('os.layer.Group');
+
+
 goog.require('os.data.ZOrderEventType');
-goog.require('os.layer.Group');
-
-
 
 /**
- * @extends {os.layer.Group}
- * @param {olx.layer.GroupOptions=} opt_options
- * @constructor
  */
-plugin.basemap.Group = function(opt_options) {
-  plugin.basemap.Group.base(this, 'constructor', opt_options);
+class Group extends osLayerGroup {
+  /**
+   * Constructor.
+   * @param {olx.layer.GroupOptions=} opt_options
+   */
+  constructor(opt_options) {
+    super(opt_options);
 
-  this.setPriority(-1000);
-  this.setCheckFunc(plugin.basemap.isBaseMap);
-  this.setOSType(plugin.basemap.LAYER_TYPE);
-};
-goog.inherits(plugin.basemap.Group, os.layer.Group);
+    this.setPriority(-1000);
+    this.setCheckFunc(plugin.basemap.isBaseMap);
+    this.setOSType(plugin.basemap.LAYER_TYPE);
+  }
+}
+
+exports = Group;
