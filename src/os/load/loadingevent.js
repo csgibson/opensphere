@@ -1,5 +1,7 @@
-goog.provide('os.load.LoadingEvent');
-goog.require('goog.events.Event');
+goog.module('os.load.LoadingEvent');
+goog.module.declareLegacyNamespace();
+
+const Event = goog.require('goog.events.Event');
 
 
 /**
@@ -14,38 +16,39 @@ os.load.LoadingEventType = {
 
 /**
  * Event representing a loading task change.
- *
- * @param {string} type
- * @param {os.load.ILoadingTask=} opt_task
- * @extends {goog.events.Event}
- * @constructor
  */
-os.load.LoadingEvent = function(type, opt_task) {
-  os.load.LoadingEvent.base(this, 'constructor', type);
+class LoadingEvent extends Event {
+  /**
+   * Constructor.
+   * @param {string} type
+   * @param {os.load.ILoadingTask=} opt_task
+   */
+  constructor(type, opt_task) {
+    super(type);
+
+    /**
+     * @type {?os.load.ILoadingTask}
+     */
+    this.task = opt_task || null;
+  }
 
   /**
-   * @type {?os.load.ILoadingTask}
+   * Get the task
+   *
+   * @return {os.load.ILoadingTask}
    */
-  this.task = opt_task || null;
-};
-goog.inherits(os.load.LoadingEvent, goog.events.Event);
+  getTask() {
+    return this.task;
+  }
 
+  /**
+   * Set the task
+   *
+   * @param {os.load.ILoadingTask} value
+   */
+  setTask(value) {
+    this.task = value;
+  }
+}
 
-/**
- * Get the task
- *
- * @return {os.load.ILoadingTask}
- */
-os.load.LoadingEvent.prototype.getTask = function() {
-  return this.task;
-};
-
-
-/**
- * Set the task
- *
- * @param {os.load.ILoadingTask} value
- */
-os.load.LoadingEvent.prototype.setTask = function(value) {
-  this.task = value;
-};
+exports = LoadingEvent;
