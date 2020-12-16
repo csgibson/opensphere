@@ -1,13 +1,14 @@
 goog.module('plugin.overview.OverviewPlugin');
 goog.module.declareLegacyNamespace();
 
+goog.require('plugin.basemap');
+
 const MapContainer = goog.require('os.MapContainer');
 const settings = goog.require('os.config.Settings');
 const AbstractPlugin = goog.require('os.plugin.AbstractPlugin');
 const OverviewMap = goog.require('plugin.overview.OverviewMap');
 
 
-goog.require('plugin.basemap');
 
 /**
  * Adds an overview map to the map controls that syncs with the current base maps
