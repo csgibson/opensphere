@@ -1,14 +1,15 @@
 goog.module('plugin.position.CopyPositionUI');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.action.EventType');
+goog.require('os.defines');
+
 const ui = goog.require('os.ui');
 const Disposable = goog.require('goog.Disposable');
 const events = goog.require('goog.events');
 const Module = goog.require('os.ui.Module');
-goog.require('os.action.EventType');
 
 
-goog.require('os.defines');
 
 /**
  * A directive to launch the copy coordinates GUI

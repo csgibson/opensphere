@@ -1,16 +1,17 @@
 goog.module('plugin.position.PositionPlugin');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.map');
+goog.require('os.ui.action.Action');
+goog.require('os.ui.action.MenuOptions');
+goog.require('plugin.position.copyPositionDirective');
+
 const MapContainer = goog.require('os.MapContainer');
 const AbstractPlugin = goog.require('os.plugin.AbstractPlugin');
 const map = goog.require('os.ui.menu.map');
 const PositionInteraction = goog.require('plugin.position.PositionInteraction');
-goog.require('os.map');
-goog.require('os.ui.action.Action');
-goog.require('os.ui.action.MenuOptions');
 
 
-goog.require('plugin.position.copyPositionDirective');
 
 /**
  * Provides map layer support
