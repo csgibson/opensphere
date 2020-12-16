@@ -1,6 +1,8 @@
 goog.module('os.audio.AudioManager');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.defines');
+
 const settings = goog.require('os.config.Settings');
 const log = goog.require('goog.log');
 const object = goog.require('goog.object');
@@ -8,7 +10,6 @@ const AudioSetting = goog.require('os.audio.AudioSetting');
 const Logger = goog.requireType('goog.log.Logger');
 
 
-goog.require('os.defines');
 
 /**
  * Manages audio sound effects for applications
