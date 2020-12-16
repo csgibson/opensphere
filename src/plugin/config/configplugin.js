@@ -1,36 +1,42 @@
-goog.provide('plugin.config.Plugin');
+goog.module('plugin.config.Plugin');
+goog.module.declareLegacyNamespace();
 
-goog.require('os.data.ConfigDescriptor');
+const ConfigDescriptor = goog.require('os.data.ConfigDescriptor');
+const ProviderEntry = goog.require('os.data.ProviderEntry');
+const AbstractPlugin = goog.require('os.plugin.AbstractPlugin');
+const config = goog.require('plugin.config');
+const Provider = goog.require('plugin.config.Provider');
+
+
 goog.require('os.data.DataManager');
-goog.require('os.data.ProviderEntry');
-goog.require('os.plugin.AbstractPlugin');
-goog.require('plugin.config');
-goog.require('plugin.config.Provider');
-
 
 /**
  * Provides config support
- *
- * @extends {os.plugin.AbstractPlugin}
- * @constructor
  */
-plugin.config.Plugin = function() {
-  plugin.config.Plugin.base(this, 'constructor');
-  this.id = plugin.config.ID;
-};
-goog.inherits(plugin.config.Plugin, os.plugin.AbstractPlugin);
-goog.addSingletonGetter(plugin.config.Plugin);
+class Plugin extends AbstractPlugin {
+  /**
+   * Constructor.
+   */
+  constructor() {
+    super();
+    this.id = config.ID;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  init() {
+    var dm = os.dataManager;
+
+    dm.registerProviderType(new ProviderEntry(
+        config.ID, Provider, 'config Provider',
+        'config servers provide layers through layer configs'));
+
+    dm.registerDescriptorType(ConfigDescriptor.ID, ConfigDescriptor);
+  }
+}
+
+goog.addSingletonGetter(Plugin);
 
 
-/**
- * @inheritDoc
- */
-plugin.config.Plugin.prototype.init = function() {
-  var dm = os.dataManager;
-
-  dm.registerProviderType(new os.data.ProviderEntry(
-      plugin.config.ID, plugin.config.Provider, 'config Provider',
-      'config servers provide layers through layer configs'));
-
-  dm.registerDescriptorType(os.data.ConfigDescriptor.ID, os.data.ConfigDescriptor);
-};
+exports = Plugin;
