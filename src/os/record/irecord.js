@@ -1,7 +1,7 @@
-goog.provide('os.record.IRecord');
+goog.module('os.record.IRecord');
+goog.module.declareLegacyNamespace();
 
-goog.require('os.time.ITime');
-
+const ITime = goog.requireType('os.time.ITime');
 
 
 /**
@@ -9,25 +9,24 @@ goog.require('os.time.ITime');
  *
  * @interface
  */
-os.record.IRecord = function() {};
+class IRecord {
+  /**
+   * The ID of the record
+   * @type {string}
+   */
+  id() {}
 
+  /**
+   * The color of the record
+   * @type {number}
+   */
+  color() {}
 
-/**
- * The ID of the record
- * @type {string}
- */
-os.record.IRecord.prototype.id;
+  /**
+   * The time for the record
+   * @type {ITime}
+   */
+  recordTime() {}
+}
 
-
-/**
- * The color of the record
- * @type {number}
- */
-os.record.IRecord.prototype.color;
-
-
-/**
- * The time for the record
- * @type {os.time.ITime}
- */
-os.record.IRecord.prototype.recordTime;
+exports = IRecord;
