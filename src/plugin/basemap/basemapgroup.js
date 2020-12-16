@@ -1,10 +1,11 @@
 goog.module('plugin.basemap.Group');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.data.ZOrderEventType');
+
 const osLayerGroup = goog.require('os.layer.Group');
 
 
-goog.require('os.data.ZOrderEventType');
 
 /**
  */

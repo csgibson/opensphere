@@ -1,17 +1,18 @@
 goog.module('plugin.basemap.BaseMapDescriptor');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.events.LayerConfigEvent');
+goog.require('os.events.LayerEvent');
+goog.require('os.events.LayerEventType');
+goog.require('os.object');
+
 const object = goog.require('goog.object');
 const LayerSyncDescriptor = goog.require('os.data.LayerSyncDescriptor');
 const map = goog.require('os.map');
 const Icons = goog.require('os.ui.Icons');
 const basemap = goog.require('plugin.basemap');
-goog.require('os.events.LayerConfigEvent');
-goog.require('os.events.LayerEvent');
-goog.require('os.events.LayerEventType');
 
 
-goog.require('os.object');
 
 /**
  * A descriptor for a base map (or "Map Layer")

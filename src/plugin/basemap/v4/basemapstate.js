@@ -8,6 +8,7 @@ goog.require('plugin.basemap');
 goog.require('plugin.basemap.layer.BaseMap');
 
 
+
 /**
  * XML tags for base map state
  * @enum {string}

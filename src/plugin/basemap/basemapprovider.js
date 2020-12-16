@@ -1,6 +1,9 @@
 goog.module('plugin.basemap.BaseMapProvider');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.data.DataManager');
+goog.require('os.ui.data.DescriptorNode');
+
 const MapContainer = goog.require('os.MapContainer');
 const dispatcher = goog.require('os.Dispatcher');
 const MapEvent = goog.require('os.MapEvent');
@@ -15,10 +18,8 @@ const basemap = goog.require('plugin.basemap');
 const BaseMapDescriptor = goog.require('plugin.basemap.BaseMapDescriptor');
 const TerrainDescriptor = goog.require('plugin.basemap.TerrainDescriptor');
 const BaseMap = goog.require('plugin.basemap.layer.BaseMap');
-goog.require('os.data.DataManager');
 
 
-goog.require('os.ui.data.DescriptorNode');
 
 /**
  * The base map provider provides access to pre-configured map layers
