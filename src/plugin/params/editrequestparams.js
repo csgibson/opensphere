@@ -1,15 +1,16 @@
 goog.module('plugin.params.EditRequestParamsUI');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.defines');
+goog.require('os.ui.slick.slickGridDirective');
+
 const ui = goog.require('os.ui');
 const Disposable = goog.require('goog.Disposable');
 const array = goog.require('ol.array');
 const ColumnDefinition = goog.require('os.data.ColumnDefinition');
 const Module = goog.require('os.ui.Module');
-goog.require('os.defines');
 
 
-goog.require('os.ui.slick.slickGridDirective');
 
 /**
  * The editrequestparams directive

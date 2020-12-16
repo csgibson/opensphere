@@ -1,14 +1,15 @@
 goog.module('plugin.params.menu');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.implements');
+goog.require('os.ol.source.IUrlSource');
+goog.require('plugin.params.editRequestParamsDirective');
+
 const alertManager = goog.require('os.alert.AlertManager');
 const osUiMenuLayer = goog.require('os.ui.menu.layer');
 const pluginParams = goog.require('plugin.params');
-goog.require('os.implements');
-goog.require('os.ol.source.IUrlSource');
 
 
-goog.require('plugin.params.editRequestParamsDirective');
 
 /**
  * Set up params menu items in the layer menu.

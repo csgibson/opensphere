@@ -1,6 +1,8 @@
 goog.module('plugin.params');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.file.File');
+
 const QueryData = goog.require('goog.Uri.QueryData');
 const utils = goog.require('goog.uri.utils');
 const osActionEventType = goog.require('os.action.EventType');
@@ -10,7 +12,6 @@ const Request = goog.require('os.source.Request');
 const osUrl = goog.require('os.url');
 
 
-goog.require('os.file.File');
 
 /**
  * Identifier for params plugin components.
