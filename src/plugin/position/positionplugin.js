@@ -1,60 +1,63 @@
-goog.provide('plugin.position.PositionPlugin');
+goog.module('plugin.position.PositionPlugin');
+goog.module.declareLegacyNamespace();
 
+const MapContainer = goog.require('os.MapContainer');
+const AbstractPlugin = goog.require('os.plugin.AbstractPlugin');
+const map = goog.require('os.ui.menu.map');
+const PositionInteraction = goog.require('plugin.position.PositionInteraction');
 goog.require('os.map');
-goog.require('os.plugin.AbstractPlugin');
 goog.require('os.ui.action.Action');
 goog.require('os.ui.action.MenuOptions');
-goog.require('os.ui.menu.map');
-goog.require('plugin.position.PositionInteraction');
+
+
 goog.require('plugin.position.copyPositionDirective');
-
-
 
 /**
  * Provides map layer support
- *
- * @extends {os.plugin.AbstractPlugin}
- * @constructor
  */
-plugin.position.PositionPlugin = function() {
-  plugin.position.PositionPlugin.base(this, 'constructor');
-  this.id = plugin.position.PositionPlugin.ID;
-};
-goog.inherits(plugin.position.PositionPlugin, os.plugin.AbstractPlugin);
-goog.addSingletonGetter(plugin.position.PositionPlugin);
+class PositionPlugin extends AbstractPlugin {
+  /**
+   * Constructor.
+   */
+  constructor() {
+    super();
+    this.id = PositionPlugin.ID;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  init() {
+    if (map.MENU) {
+      var menu = map.MENU;
+
+      var group = menu.getRoot().find(map.GroupLabel.COORDINATE);
+      if (group) {
+        group.addChild({
+          label: 'Copy Coordinates',
+          eventType: os.action.EventType.COPY,
+          tooltip: 'Copy coordinates to clipboard',
+          icons: ['<i class="fa fa-fw fa-sticky-note"></i>'],
+          shortcut: '.',
+          metricKey: os.metrics.keys.Map.COPY_COORDINATES_CONTEXT_MENU
+        });
+      }
+
+      menu.listen(os.action.EventType.COPY, plugin.position.onCopy_);
+    }
+
+    MapContainer.getInstance().getMap().getInteractions().push(new PositionInteraction());
+  }
+}
+
+goog.addSingletonGetter(PositionPlugin);
 
 
 /**
  * @type {string}
  * @const
  */
-plugin.position.PositionPlugin.ID = 'position';
-
-
-/**
- * @inheritDoc
- */
-plugin.position.PositionPlugin.prototype.init = function() {
-  if (os.ui.menu.map.MENU) {
-    var menu = os.ui.menu.map.MENU;
-
-    var group = menu.getRoot().find(os.ui.menu.map.GroupLabel.COORDINATE);
-    if (group) {
-      group.addChild({
-        label: 'Copy Coordinates',
-        eventType: os.action.EventType.COPY,
-        tooltip: 'Copy coordinates to clipboard',
-        icons: ['<i class="fa fa-fw fa-sticky-note"></i>'],
-        shortcut: '.',
-        metricKey: os.metrics.keys.Map.COPY_COORDINATES_CONTEXT_MENU
-      });
-    }
-
-    menu.listen(os.action.EventType.COPY, plugin.position.onCopy_);
-  }
-
-  os.MapContainer.getInstance().getMap().getInteractions().push(new plugin.position.PositionInteraction());
-};
+PositionPlugin.ID = 'position';
 
 
 /**
@@ -70,7 +73,7 @@ plugin.position.onCopy_ = function(evt) {
  */
 plugin.position.launchCopy = function(opt_coord) {
   os.metrics.Metrics.getInstance().updateMetric(os.metrics.keys.Map.COPY_COORDINATES, 1);
-  var controls = os.MapContainer.getInstance().getMap().getControls().getArray();
+  var controls = MapContainer.getInstance().getMap().getControls().getArray();
   var mousePos = null;
   for (var i = 0, n = controls.length; i < n; i++) {
     if (controls[i] instanceof os.ol.control.MousePosition) {
@@ -86,3 +89,4 @@ plugin.position.launchCopy = function(opt_coord) {
     }
   }
 };
+exports = PositionPlugin;
