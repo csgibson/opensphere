@@ -1,6 +1,10 @@
 goog.module('plugin.config.Provider');
 goog.module.declareLegacyNamespace();
 
+goog.require('goog.log.Logger');
+goog.require('os.data.DataManager');
+goog.require('os.ui.data.DescriptorNode');
+
 const settings = goog.require('os.config.Settings');
 const log = goog.require('goog.log');
 const data = goog.require('os.data');
@@ -10,11 +14,8 @@ const DataProviderEvent = goog.require('os.data.DataProviderEvent');
 const DataProviderEventType = goog.require('os.data.DataProviderEventType');
 const IDataProvider = goog.require('os.data.IDataProvider');
 const DescriptorProvider = goog.require('os.ui.data.DescriptorProvider');
-goog.require('goog.log.Logger');
-goog.require('os.data.DataManager');
 
 
-goog.require('os.ui.data.DescriptorNode');
 
 /**
  * The configuration provider provides access to configuration sources.
