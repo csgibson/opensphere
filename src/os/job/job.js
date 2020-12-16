@@ -1,6 +1,9 @@
 goog.module('os.job.Job');
 goog.module.declareLegacyNamespace();
 
+goog.require('goog.events');
+goog.require('goog.events.EventType');
+
 const Timer = goog.require('goog.Timer');
 const EventTarget = goog.require('goog.events.EventTarget');
 const log = goog.require('goog.log');
@@ -11,9 +14,7 @@ const JobCommand = goog.require('os.job.JobCommand');
 const Logger = goog.requireType('goog.log.Logger');
 
 
-goog.require('goog.events');
 
-goog.require('goog.events.EventType');
 goog.exportSymbol('os.job.JobCommand', JobCommand);
 
 

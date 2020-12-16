@@ -1,12 +1,13 @@
 goog.module('os.job.JobManager');
 goog.module.declareLegacyNamespace();
 
+goog.require('goog.events');
+
 const EventTarget = goog.require('goog.events.EventTarget');
 const Job = goog.require('os.job.Job');
 const JobEventType = goog.require('os.job.JobEventType');
 
 
-goog.require('goog.events');
 
 /**
  * The JobManager is responsible for maintaining a list of active jobs. Jobs
