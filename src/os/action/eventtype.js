@@ -1,12 +1,13 @@
-goog.provide('os.action.EventType');
+goog.module('os.action.EventType');
+goog.module.declareLegacyNamespace();
 
-goog.require('goog.events.EventType');
+const EventType = goog.require('goog.events.EventType');
 
 
 /**
  * @enum {string}
  */
-os.action.EventType = {
+exports = {
 
   // layer
   IDENTIFY: 'identify',
@@ -23,7 +24,7 @@ os.action.EventType = {
   FEATURE_LIST: 'layer:featureList',
 
   // map
-  COPY: goog.events.EventType.COPY,
+  COPY: EventType.COPY,
   RESET_VIEW: 'resetView',
   RESET_ROTATION: 'resetRotation',
   TOGGLE_VIEW: 'toggleView',
