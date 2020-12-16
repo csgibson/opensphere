@@ -1,12 +1,13 @@
 goog.module('plugin.openpage.Page');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.defines');
+
 const safe = goog.require('goog.dom.safe');
 const Peer = goog.require('os.xt.Peer');
 const openpage = goog.require('plugin.openpage');
 
 
-goog.require('os.defines');
 
 (function() {
   var type = openpage.TYPE;
