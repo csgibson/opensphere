@@ -1,27 +1,32 @@
-goog.provide('plugin.openpage.Plugin');
+goog.module('plugin.openpage.Plugin');
+goog.module.declareLegacyNamespace();
 
-goog.require('os.plugin.AbstractPlugin');
-goog.require('plugin.openpage.Handler');
+const AbstractPlugin = goog.require('os.plugin.AbstractPlugin');
+const Handler = goog.require('plugin.openpage.Handler');
 
 
 /**
  * Provides a Weather menu option when right-clicking the map. The resulting location is then
  * opened in a new tab with the configured weather URL.
- *
- * @extends {os.plugin.AbstractPlugin}
- * @constructor
  */
-plugin.openpage.Plugin = function() {
-  plugin.openpage.Plugin.base(this, 'constructor');
-  this.id = plugin.openpage.ID;
-};
-goog.inherits(plugin.openpage.Plugin, os.plugin.AbstractPlugin);
-goog.addSingletonGetter(plugin.openpage.Plugin);
+class Plugin extends AbstractPlugin {
+  /**
+   * Constructor.
+   */
+  constructor() {
+    super();
+    this.id = plugin.openpage.ID;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  init() {
+    os.xt.Peer.getInstance().addHandler(new Handler());
+  }
+}
+
+goog.addSingletonGetter(Plugin);
 
 
-/**
- * @inheritDoc
- */
-plugin.openpage.Plugin.prototype.init = function() {
-  os.xt.Peer.getInstance().addHandler(new plugin.openpage.Handler());
-};
+exports = Plugin;
