@@ -10,6 +10,7 @@ goog.require('plugin.osm.nom.NominatimParser');
 goog.require('plugin.osm.nom.SearchResult');
 
 
+
 /**
  * Search provider for the OSM Nominatim API.
  *

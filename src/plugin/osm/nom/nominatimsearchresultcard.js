@@ -5,6 +5,7 @@ goog.require('os.ui.Module');
 goog.require('os.ui.search.FeatureResultCardCtrl');
 
 
+
 /**
  * Result card UI for Nominatim search results.
  *

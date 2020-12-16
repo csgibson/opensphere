@@ -6,6 +6,7 @@ goog.require('plugin.osm.nom');
 goog.require('plugin.osm.nom.NominatimSearch');
 
 
+
 /**
  * Provides an interface to the OSM Nominatim API.
  *
