@@ -1,6 +1,8 @@
 goog.module('os.load.LoadingManager');
 goog.module.declareLegacyNamespace();
 
+goog.require('goog.events.Event');
+
 const EventTarget = goog.require('goog.events.EventTarget');
 const log = goog.require('goog.log');
 const PropertyChangeEvent = goog.require('os.events.PropertyChangeEvent');
@@ -8,7 +10,6 @@ const LoadingEvent = goog.require('os.load.LoadingEvent');
 const LoadingTask = goog.require('os.load.LoadingTask');
 
 
-goog.require('goog.events.Event');
 
 /**
  * Manages loading tasks within an application.
