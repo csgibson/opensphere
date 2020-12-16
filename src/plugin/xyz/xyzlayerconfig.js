@@ -56,7 +56,7 @@ class XYZLayerConfig extends AbstractTileLayerConfig {
     options['crossOrigin'] = this.crossOrigin;
     options['wrapX'] = this.projection.isGlobal();
 
-    return new XYZ( (options));
+    return new XYZ((options));
   }
 }
 
