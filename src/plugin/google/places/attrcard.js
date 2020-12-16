@@ -5,6 +5,7 @@ goog.require('os.defines');
 goog.require('os.ui.Module');
 
 
+
 /**
  * The geonames result card directive for displaying search results.
  *

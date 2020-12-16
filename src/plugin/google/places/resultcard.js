@@ -8,6 +8,7 @@ goog.require('os.ui.Module');
 goog.require('os.ui.search.FeatureResultCardCtrl');
 
 
+
 /**
  * The geonames result card directive for displaying search results.
  *
